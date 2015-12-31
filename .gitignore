@@ -1,4 +1,8 @@
-./experiments/Results/*
-./experiments/SinglePathExperiments/Results/*
-./experiments/SinglePathExperiments/Results/
+#Ignore results files
+
+experiments/Results/*
+experiments/SinglePathExperiments/Results/*
+experiments/2PathExperiments/Results/
+experiments/2PathExperiments/Results/*
+tutorial/
 
