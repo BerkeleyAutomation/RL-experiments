@@ -58,12 +58,13 @@ def make_experiment(exp_id=1, path="./Results/Experiments/", domain_class="GridW
     experiment = ExperimentSegment(**opt)
     return experiment
 
-def run(opt):
+def run(opt, saveWeights=False):
     experiment = make_experiment(**opt)
     experiment.run(visualize_steps=False,  # should each learning step be shown?
                    visualize_learning=False,  # show policy / value function?
                    saveTrajectories=False)  # show performance runs?
-    experiment.saveWeights()
+    if saveWeights:
+        experiment.saveWeights()
     experiment.save()
 
 

@@ -1,4 +1,4 @@
-import trial_2paths as trials
+from TwoPathExperiments import trial_2paths as trials
 from numpy import trapz 
 import matplotlib.pyplot as plt
 
@@ -28,36 +28,60 @@ get_AUC = lambda res: trapz(res, dx=1) ##setting dx = 1 but shouldn't matter
  
 ## save weights after 500 iterations; should be pickled
 def prelim_weights(max_steps=500):
+	main_path = "./TwoPathExperiments/TrialResults/" 
+
+	###################
 	params = {}
 	params['max_steps'] = max_steps
 	params['num_policy_checks'] = 0 ##may bug out here
 	params['domain_class'] = "GridWorld"
 	params['mapf'] = "9x9-2Path0.txt"
+	params['path'] = main_path + "CTRL"
 
-	trials.run(params)
+	trials.run(params, saveWeights=True)
 
 	##Segmented Trial
 
 	params['domain_class'] = "GridWorldInter"
 	params['mapf'] = "9x9-2PathR1.txt"
-	trials.run(params)
+	params['path'] = main_path + "MAP1"
+	trials.run(params, saveWeights=True)
 
 	## Segmented Trial 2
 	params['mapf'] = "9x9-2PathR2.txt"
-	trials.run(params)
+
+	params['path'] = main_path + "MAP2"
+	trials.run(params, saveWeights=True)
+
+def load_weight(exp):
+	#TODO
+	pass
 
 ## run on full experiment on original MDP until convergence
-def run_full():
-	res1 = ctrl.run(weights=weight_ctrl, num_policy_checks=40, max_steps=4000)
-	res2 = ctrl.run(weights=weight_seq1, num_policy_checks=40, max_steps=4000)
-	res3 = ctrl.run(weights=weight_seq2, num_policy_checks=40, max_steps=4000)
+def run_full(max_steps=4000):
+	main_path = "./TwoPathExperiments/TrialResults/" 
+	params = {}
+	params['max_steps'] = max_steps
+	params['num_policy_checks'] = max_steps / 100 ##may bug out here
+	params['domain_class'] = "GridWorld"
+	params['mapf'] = "9x9-2Path0.txt"
+	params['path'] = main_path + "CTRL"
+
+	param['weights'] = load_weight("CTRL")
+	res1 = trials.run(params)
+
+
+	param['weights'] = load_weight("MAP1")
+	res2 = trials.run(params)
+
+	param['weights'] = load_weight("MAP2")
+	res3 = trials.run(params)
 
 ## may want to save reward data
 
 #FIRST RESULTS?
-print "Is res1 > res2? {}".format(res1, res2)
 
-def param_experiment(param, range=None):
+def param_experiment(param, range=None): #TODO
 	if param == EPS:
 		pass
 	elif param == ENV_NOISE:
@@ -68,7 +92,7 @@ def param_experiment(param, range=None):
 		pass
 	pass
 
-def plot(self, y="return", x="learning_steps", save=False):
+def plot(self, y="return", x="learning_steps", save=False): #TODO
     labels = rlpy.Tools.results.default_labels
     performance_fig = plt.figure("Performance")
     res = self.result
@@ -94,4 +118,4 @@ def plot(self, y="return", x="learning_steps", save=False):
 
 if __name__ == '__main__':
 	prelim_weights()
-	#run_full()
+	run_full()

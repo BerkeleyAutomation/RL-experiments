@@ -1,8 +1,14 @@
 #Ignore results files
-
+*.pyc
 experiments/Results/*
 experiments/SinglePathExperiments/Results/*
 experiments/2PathExperiments/Results/
 experiments/2PathExperiments/Results/*
+experiments/TwoPathExperiments/Results/
+experiments/TwoPathExperiments/Results/*
+experiments/TwoPathExperiments/TrialResults/
+experiments/TwoPathExperiments/TrialResults/*
 tutorial/
+.*
+!/.gitignore
 
