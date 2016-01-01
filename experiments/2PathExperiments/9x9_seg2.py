@@ -12,7 +12,7 @@ from rlpy.Tools import deltaT, clock, hhmmss, getTimeStr
 # from .. import visualize_trajectories as visual
 import os
 
-maze = os.path.join(GridWorldInter.default_map_dir, '9x9-2PathR1.txt') 
+maze = os.path.join(GridWorldInter.default_map_dir, '9x9-2PathR2.txt') 
 
 def make_experiment(exp_id=1, path="./Results/Experiments/"):
     """

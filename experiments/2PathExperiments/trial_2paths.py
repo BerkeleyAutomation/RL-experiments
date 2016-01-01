@@ -12,9 +12,9 @@ from rlpy.Tools import deltaT, clock, hhmmss, getTimeStr
 # from .. import visualize_trajectories as visual
 import os
 
-maze = os.path.join(GridWorldInter.default_map_dir, '9x9-2PathR1.txt') 
 
-def make_experiment(exp_id=1, path="./Results/Experiments/"):
+def make_experiment(exp_id=1, path="./Results/Experiments/", domain_class="GridWorld", mapf='9x9-2Path0.txt', 
+                    max_steps=5000, num_policy_checks=50, agent_eps=0.1, env_noise=0.01, weights=None):
     """
     Each file specifying an experimental setup should contain a
     make_experiment function which returns an instance of the Experiment
@@ -27,32 +27,44 @@ def make_experiment(exp_id=1, path="./Results/Experiments/"):
     opt["exp_id"] = exp_id
     opt["path"] = path
 
+    maze = os.path.join(GridWorldInter.default_map_dir, mapf) 
+
     ## Domain:
-    domain = GridWorldInter(maze, noise=0.01)
-    # domain.showDomain(s=[0, 2])
+    if domain_class == "GridWorld":
+        domain = GridWorld(maze, noise=env_noise)
+    elif domain_class == "GridWorldInter":
+        domain = GridWorldInter(maze, noise=env_noise)
+        
     opt["domain"] = domain
 
     ## Representation
     # discretization only needed for continuous state spaces, discarded otherwise
-    representation  = Tabular(domain, discretization=20)
+    representation = Tabular(domain, discretization=20)
+    if weights:
+        assert domain_class == GridWorld ## ensure that we are transferring to right class
+        representation.weight_vec = weights
 
     ## Policy
-    policy = eGreedy(representation, epsilon=0.1) ## Need to change this back, limiting noise ATM
+    policy = eGreedy(representation, epsilon=agent_eps) ## Need to change this back, limiting noise ATM
 
     ## Agent
     opt["agent"] = Q_Learning(representation=representation, policy=policy,
                    discount_factor=domain.discount_factor,
                        initial_learn_rate=0.3)
     opt["checks_per_policy"] = 50
-    opt["max_steps"] = 5000
-    opt["num_policy_checks"] = 50
+    opt["max_steps"] = max_steps
+    opt["num_policy_checks"] = num_policy_checks
+
     experiment = ExperimentSegment(**opt)
     return experiment
 
-
-# ## DEBUG
-# import ipdb; ipdb.set_trace()
-# ########
+def run(opt):
+    experiment = make_experiment(**opt)
+    experiment.run(visualize_steps=False,  # should each learning step be shown?
+                   visualize_learning=False,  # show policy / value function?
+                   saveTrajectories=False)  # show performance runs?
+    experiment.saveWeights()
+    experiment.save()
 
 
 if __name__ == '__main__':
