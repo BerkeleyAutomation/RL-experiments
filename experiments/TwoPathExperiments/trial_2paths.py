@@ -14,7 +14,7 @@ import os
 
 
 def make_experiment(exp_id=1, path="./Results/Experiments/", domain_class="GridWorld", mapf='9x9-2Path0.txt', 
-                    max_steps=5000, num_policy_checks=50, agent_eps=0.1, env_noise=0.01, weights=None):
+                    max_steps=5000, num_policy_checks=50, agent_eps=0.1, env_noise=0.1, seg_goal=0.8, step_reward=-0.001 weights=None):
     """
     Each file specifying an experimental setup should contain a
     make_experiment function which returns an instance of the Experiment
@@ -33,15 +33,15 @@ def make_experiment(exp_id=1, path="./Results/Experiments/", domain_class="GridW
     if domain_class == "GridWorld":
         domain = GridWorld(maze, noise=env_noise)
     elif domain_class == "GridWorldInter":
-        domain = GridWorldInter(maze, noise=env_noise)
+        domain = GridWorldInter(maze, noise=env_noise, new_goal=seg_goal)
         
     opt["domain"] = domain
 
     ## Representation
     # discretization only needed for continuous state spaces, discarded otherwise
     representation = Tabular(domain, discretization=20)
-    if weights:
-        assert domain_class == GridWorld ## ensure that we are transferring to right class
+    if weights is not None:
+        assert domain_class == "GridWorld" ## ensure that we are transferring to right class
         representation.weight_vec = weights
 
     ## Policy
@@ -66,6 +66,7 @@ def run(opt, saveWeights=False):
     if saveWeights:
         experiment.saveWeights()
     experiment.save()
+    return experiment.results
 
 
 if __name__ == '__main__':
