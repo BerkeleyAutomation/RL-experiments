@@ -14,7 +14,7 @@ import os
 
 
 def make_experiment(exp_id=1, path="./Results/Experiments/", domain_class="GridWorld", mapf='9x9-2Path0.txt', 
-                    max_steps=5000, num_policy_checks=50, agent_eps=0.1, env_noise=0.1, seg_goal=0.8, step_reward=-0.001 weights=None):
+                    max_steps=5000, num_policy_checks=50, agent_eps=0.1, env_noise=0.1, seg_goal=0.8, step_reward=-0.001, weights=None):
     """
     Each file specifying an experimental setup should contain a
     make_experiment function which returns an instance of the Experiment
@@ -31,7 +31,7 @@ def make_experiment(exp_id=1, path="./Results/Experiments/", domain_class="GridW
 
     ## Domain:
     if domain_class == "GridWorld":
-        domain = GridWorld(maze, noise=env_noise)
+        domain = GridWorld(maze, noise=env_noise, step_reward=step_reward)
     elif domain_class == "GridWorldInter":
         domain = GridWorldInter(maze, noise=env_noise, new_goal=seg_goal)
         
@@ -66,7 +66,7 @@ def run(opt, saveWeights=False):
     if saveWeights:
         experiment.saveWeights()
     experiment.save()
-    return experiment.results
+    return experiment.result
 
 
 if __name__ == '__main__':
