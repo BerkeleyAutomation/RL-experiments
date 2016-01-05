@@ -13,8 +13,11 @@ from rlpy.Tools import deltaT, clock, hhmmss, getTimeStr
 import os
 
 
-def make_experiment(exp_id=1, path="./Results/Experiments/", domain_class="GridWorldTime", mapf='9x9-2Path0.txt', eval_map='9x9-2Path0.txt',
-                    max_eps=5000, num_policy_checks=50, agent_eps=0.1, env_noise=0.1, episodeCap=50, door_reward=5, weights=None):
+def make_experiment(exp_id=1, path="./Results/Experiments/", domain_class="GridWorldTime", 
+                    mapf='9x9-2PathR1.txt', eval_map='9x9-2Path0.txt',
+                    max_eps=10000, num_policy_checks=100, checks_per_policy=50, 
+                    agent_eps=0.3, env_noise=0.1, episodeCap=30, 
+                    step_reward=-0.01, door_reward=1, weights=None):
     """
     Each file specifying an experimental setup should contain a
     make_experiment function which returns an instance of the Experiment
@@ -33,8 +36,8 @@ def make_experiment(exp_id=1, path="./Results/Experiments/", domain_class="GridW
     eval_maze = os.path.join(GridWorldInter.default_map_dir, eval_map)
 
     ## Domain:
-    domain = GridWorldTime(maze, noise=env_noise, episodeCap=episodeCap, door_reward=door_reward)
-    eval_domain = GridWorldTime(eval_maze, noise=env_noise, episodeCap=episodeCap)
+    domain = GridWorldTime(maze, noise=env_noise, episodeCap=episodeCap, door_reward=door_reward, step_reward=step_reward)
+    eval_domain = GridWorldTime(eval_maze, noise=env_noise, episodeCap=episodeCap, step_reward=step_reward,)
         
     opt["domain"] = domain
     opt["eval_domain"] = eval_domain #TODO: Can change this implementation to have Experiment take care of running default maps
@@ -51,8 +54,10 @@ def make_experiment(exp_id=1, path="./Results/Experiments/", domain_class="GridW
     ## Agent
     opt["agent"] = Q_Learning(representation=representation, policy=policy,
                    discount_factor=domain.discount_factor,
-                       initial_learn_rate=0.3)
+                       initial_learn_rate=0.3, learn_rate_decay_mode='const')
     opt["max_eps"] = max_eps
+    opt["checks_per_policy"] = checks_per_policy
+    opt["num_policy_checks"] = num_policy_checks
 
     experiment = ExperimentSegment(**opt)
     return experiment
@@ -78,11 +83,11 @@ if __name__ == '__main__':
 
     # visual.saveDomain(experiment, GridWorldInter, maze)
     # import ipdb; ipdb.set_trace()
-    # experiment.domain.showLearning(experiment.agent.representation)
+    experiment.domain.showLearning(experiment.agent.representation)
 
 
     # experiment.plotTrials(save=True)
     # experiment.saveWeights()
-    # experiment.plot(save=True) #, y="reward")
+    experiment.plot(save=True, x="learning_episode") #, y="reward")
     # experiment.save()
 
