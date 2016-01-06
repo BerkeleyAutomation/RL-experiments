@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """
 Runs experiment with custom domain - 9x9-2Path0.txt
+Specifically using SEGMENTED reward and GRIDWORLDTIME
 """
 __author__ = "Richard Liaw"
 from rlpy.CustomDomains import GridWorldInter, GridWorld, GridWorldTime
@@ -13,11 +14,21 @@ from rlpy.Tools import deltaT, clock, hhmmss, getTimeStr
 import os
 
 
-def make_experiment(exp_id=1, path="./Results/Experiments/", domain_class="GridWorldTime", 
-                    mapf='9x9-2PathR1.txt', eval_map='9x9-2Path0.txt',
-                    max_eps=10000, num_policy_checks=100, checks_per_policy=50, 
-                    agent_eps=0.3, env_noise=0.1, episodeCap=30, 
-                    step_reward=-0.01, door_reward=1, weights=None):
+def run(opt, saveWeights=False):
+    experiment = make_experiment(**opt)
+    experiment.run(visualize_steps=False,  # should each learning step be shown?
+                   visualize_learning=False,  # show policy / value function?
+                   saveTrajectories=False)  # show performance runs?
+    if saveWeights:
+        experiment.saveWeights()
+    experiment.save()
+    return experiment.result
+
+def make_experiment(exp_id=1, path="./Results/Experiments/", 
+                    mapf='9x9-2Path0.txt', eval_map='9x9-2Path0.txt',
+                    max_eps=10000, num_policy_checks=50, checks_per_policy=50, 
+                    agent_eps=0.2, env_noise=0.1, episodeCap=30, 
+                    step_reward=-0.1, door_reward=0.1, weights=None):
     """
     Each file specifying an experimental setup should contain a
     make_experiment function which returns an instance of the Experiment
@@ -28,6 +39,11 @@ def make_experiment(exp_id=1, path="./Results/Experiments/", domain_class="GridW
     :param max_eps: total number of episodes to rollout
     :param episodeCap: total number of steps to take within one episode
     """
+
+    ##
+    # from IPython.lib.pretty import pprint
+    # print pprint(vars())
+    ##
     opt = {}
     opt["exp_id"] = exp_id
     opt["path"] = path
@@ -61,16 +77,6 @@ def make_experiment(exp_id=1, path="./Results/Experiments/", domain_class="GridW
 
     experiment = ExperimentSegment(**opt)
     return experiment
-
-def run(opt, saveWeights=False):
-    experiment = make_experiment(**opt)
-    experiment.run(visualize_steps=False,  # should each learning step be shown?
-                   visualize_learning=False,  # show policy / value function?
-                   saveTrajectories=False)  # show performance runs?
-    if saveWeights:
-        experiment.saveWeights()
-    experiment.save()
-    return experiment.result
 
 
 if __name__ == '__main__':
