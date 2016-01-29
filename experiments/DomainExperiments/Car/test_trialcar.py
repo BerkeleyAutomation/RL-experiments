@@ -28,8 +28,8 @@ def make_experiment(exp_id=1, path="./Results/Experiments/TrialCar/" + getTimeSt
     opt["path"] = path
 
     ## Domain:
-    domain = RCSegment(noise=0.1, episodeCap=100, with_collision=True)
-    # opt["eval_domain"] = RCSegment(noise=0.01)
+    domain = RCSegment(noise=0.1, episodeCap=100, with_collision=True, rewardfile="reward.p")
+    opt["performance_domain"] = RCSegment(noise=0.01, episodeCap=100, with_collision=True)
     opt["domain"] = domain
 
     ## Representation
@@ -37,15 +37,15 @@ def make_experiment(exp_id=1, path="./Results/Experiments/TrialCar/" + getTimeSt
     representation  = IncrementalTabular(domain, discretization=20)
 
     ## Policy
-    policy = eGreedy(representation, epsilon=0.4) ## Need to change this back, limiting noise ATM
+    policy = eGreedy(representation, epsilon=0.3) ## Need to change this back, limiting noise ATM
 
     ## Agent
     opt["agent"] = Q_Learning(representation=representation, policy=policy,
                    discount_factor=domain.discount_factor,
                        initial_learn_rate=0.3, learn_rate_decay_mode='const')
     opt["checks_per_policy"] = 30
-    opt["max_eps"] = 10000
-    opt["num_policy_checks"] = 20
+    opt["max_eps"] = 300
+    opt["num_policy_checks"] = 30
     experiment = ExperimentSegment(**opt)
     return experiment
 
