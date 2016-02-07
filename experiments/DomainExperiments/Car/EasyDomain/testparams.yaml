@@ -1,0 +1,49 @@
+# YAML file for experiments
+
+exp_id: 1
+
+results_path: './Results/Experiments/TrialCar/'
+
+experiment: rlpy.Experiments.ExperimentSegment
+
+domain: rlpy.CustomDomains.RCSegment
+domain_params:
+    goal: [0.5, 0.3, 0, 1.0472] #pi/3
+    noise: 0.1
+    episodeCap: 50
+    goal_reward: 5
+    goal_radius: 0.1
+    rewardfile: 'reward/simple/rewardfull.p'
+
+performance_domain: rlpy.CustomDomains.RCSegment
+performance_params:
+# Goal[0] and Goal[1] represent 
+# Goal[2] is ignored
+# Goal[3] 
+    goal: [0.5, 0.3, 0, 1.047] #pi/3
+    noise: 0.01
+    episodeCap: 50
+    goal_reward: 5
+    goal_radius: 0.1
+
+representation: rlpy.Representations.CustomIncreTabular
+representation_params:
+    # domain is implicit as defined above
+    discretization: 20
+
+policy: rlpy.Policies.eGreedy
+policy_params:
+    # representation: also implicit
+    epsilon: 0.3
+
+agent: rlpy.Agents.Q_Learning
+agent_params:
+    # - representation
+    # - policy
+    # - discount factor = domain.discount_factor = 0.9
+    initial_learn_rate: 0.3
+    learn_rate_decay_mode: 'const'
+
+checks_per_policy: 20
+max_eps: 400
+num_policy_checks: 40
