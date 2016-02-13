@@ -44,5 +44,5 @@ agent_params:
     learn_rate_decay_mode: 'const'
 
 checks_per_policy: 20
-max_eps: 14000
+max_eps: 400
 num_policy_checks: 10

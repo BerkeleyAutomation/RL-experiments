@@ -48,7 +48,7 @@ if __name__ == '__main__':
     experiment = run_experiment_params(sys.argv[1])
     experiment.run(visualize_steps=False,  # should each learning step be shown?
                    visualize_learning=False,
-                   visualize_performance=False)  # show policy / value function?
+                   visualize_performance=True)  # show policy / value function?
                    # saveTrajectories=False)  # show performance runs?
 
     experiment.domain.showLearning(experiment.agent.representation)

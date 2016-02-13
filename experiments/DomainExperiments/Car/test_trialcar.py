@@ -9,7 +9,7 @@ from rlpy.Representations import Tabular, IncrementalTabular
 from rlpy.Policies import eGreedy
 from rlpy.Experiments import ExperimentSegment, Experiment
 from rlpy.Tools import deltaT, clock, hhmmss, getTimeStr
-from rlpy.CustomDomains import TestRCCar, RCSegment
+from rlpy.CustomDomains import RCSegment
 # from .. import visualize_trajectories as visual
 import os
 

@@ -1,0 +1,12 @@
+     0: >>>Eps 0: Return=    0.2311, Steps=50.0, Features = 0, Learning Rate=0.3
+  6950: >>>Eps 140: Return=     0.683, Steps=50.0, Features = 1127, Learning Rate=0.3
+ 13950: >>>Eps 280: Return=     0.783, Steps=50.0, Features = 1409, Learning Rate=0.3
+ 20950: >>>Eps 420: Return=    0.7869, Steps=50.0, Features = 1549, Learning Rate=0.3
+ 27950: >>>Eps 560: Return=    0.2481, Steps=50.0, Features = 1693, Learning Rate=0.3
+ 34950: >>>Eps 700: Return=    0.7889, Steps=50.0, Features = 1783, Learning Rate=0.3
+ 41950: >>>Eps 840: Return=    0.7953, Steps=50.0, Features = 1832, Learning Rate=0.3
+ 48950: >>>Eps 980: Return=    0.7929, Steps=50.0, Features = 1892, Learning Rate=0.3
+ 55950: >>>Eps 1120: Return=     0.657, Steps=50.0, Features = 1969, Learning Rate=0.3
+ 62950: >>>Eps 1260: Return=    0.8234, Steps=50.0, Features = 2055, Learning Rate=0.3
+ 69950: >>>Eps 1400: Return=    0.8226, Steps=50.0, Features = 2106, Learning Rate=0.3
+Total Experiment Duration 0:01:35

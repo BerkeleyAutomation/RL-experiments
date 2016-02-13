@@ -1,0 +1,14 @@
+     0: >>>Eps 0: Return=     2.838, Steps=50.0, Features = 0, Learning Rate=0.3
+   500: >>>Eps 10: Return=     1.864, Steps=50.0, Features = 166, Learning Rate=0.3
+  1000: >>>Eps 20: Return=     1.784, Steps=50.0, Features = 261, Learning Rate=0.3
+  1500: >>>Eps 30: Return=      1.93, Steps=50.0, Features = 326, Learning Rate=0.3
+  2000: >>>Eps 40: Return=      1.93, Steps=50.0, Features = 366, Learning Rate=0.3
+  2500: >>>Eps 50: Return=      1.93, Steps=50.0, Features = 384, Learning Rate=0.3
+  3000: >>>Eps 60: Return=     1.929, Steps=50.0, Features = 452, Learning Rate=0.3
+  3500: >>>Eps 70: Return=     1.816, Steps=50.0, Features = 524, Learning Rate=0.3
+  4000: >>>Eps 80: Return=     2.018, Steps=50.0, Features = 554, Learning Rate=0.3
+  4500: >>>Eps 90: Return=     1.934, Steps=50.0, Features = 588, Learning Rate=0.3
+  5000: >>>Eps 100: Return=     1.767, Steps=50.0, Features = 613, Learning Rate=0.3
+  5500: >>>Eps 110: Return=     2.245, Steps=50.0, Features = 650, Learning Rate=0.3
+  6000: >>>Eps 120: Return=     2.245, Steps=50.0, Features = 682, Learning Rate=0.3
+  6500: >>>Eps 130: Return=     1.979, Steps=50.0, Features = 699, Learning Rate=0.3
