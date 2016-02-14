@@ -1,0 +1,172 @@
+     0: >>> E[0:00:00]-R[?]: Return=    -1e+04, Steps=10000.0, Features = 0
+  5000: >>> E[0:00:01]-R[0:00:42]: Return=    -1e+04, Steps=10000.0, Features = 51
+ 10000: E[0:00:03]-R[0:00:41]: Return=    -1e+04, Steps=10000, Features = 51
+ 10000: >>> E[0:00:03]-R[0:00:41]: Return=    -1e+04, Steps=10000.0, Features = 51
+ 15000: >>> E[0:00:04]-R[0:00:40]: Return=    -1e+04, Steps=10000.0, Features = 91
+ 20000: E[0:00:06]-R[0:00:40]: Return=    -1e+04, Steps=10000, Features = 91
+ 20000: >>> E[0:00:06]-R[0:00:40]: Return=    -1e+04, Steps=10000.0, Features = 91
+ 25000: >>> E[0:00:08]-R[0:00:39]: Return=    -1e+04, Steps=10000.0, Features = 118
+ 30000: E[0:00:09]-R[0:00:37]: Return=    -1e+04, Steps=10000, Features = 118
+ 30000: >>> E[0:00:09]-R[0:00:37]: Return=    -1e+04, Steps=10000.0, Features = 118
+ 35000: >>> E[0:00:11]-R[0:00:36]: Return=    -1e+04, Steps=10000.0, Features = 139
+ 40000: E[0:00:13]-R[0:00:35]: Return=    -1e+04, Steps=10000, Features = 139
+ 40000: >>> E[0:00:13]-R[0:00:35]: Return=    -1e+04, Steps=10000.0, Features = 139
+ 45000: >>> E[0:00:14]-R[0:00:34]: Return=    -1e+04, Steps=10000.0, Features = 171
+ 50000: E[0:00:16]-R[0:00:33]: Return=    -1e+04, Steps=10000, Features = 171
+ 50000: >>> E[0:00:16]-R[0:00:33]: Return=    -1e+04, Steps=10000.0, Features = 171
+ 55000: >>> E[0:00:18]-R[0:00:31]: Return=    -1e+04, Steps=10000.0, Features = 190
+ 60000: E[0:00:20]-R[0:00:30]: Return=    -1e+04, Steps=10000, Features = 190
+ 60000: >>> E[0:00:20]-R[0:00:30]: Return=    -1e+04, Steps=10000.0, Features = 190
+ 65000: >>> E[0:00:22]-R[0:00:28]: Return=    -1e+04, Steps=10000.0, Features = 216
+ 70000: E[0:00:24]-R[0:00:27]: Return=    -1e+04, Steps=10000, Features = 216
+ 70000: >>> E[0:00:24]-R[0:00:27]: Return=    -1e+04, Steps=10000.0, Features = 216
+ 75000: >>> E[0:00:25]-R[0:00:25]: Return=    -1e+04, Steps=10000.0, Features = 240
+ 80000: E[0:00:27]-R[0:00:24]: Return=    -1e+04, Steps=10000, Features = 240
+ 80000: >>> E[0:00:27]-R[0:00:24]: Return=    -1e+04, Steps=10000.0, Features = 240
+ 85000: >>> E[0:00:29]-R[0:00:22]: Return=    -1e+04, Steps=10000.0, Features = 266
+ 90000: E[0:00:31]-R[0:00:21]: Return=    -1e+04, Steps=10000, Features = 266
+ 90000: >>> E[0:00:31]-R[0:00:21]: Return=    -1e+04, Steps=10000.0, Features = 266
+ 95000: >>> E[0:00:39]-R[0:00:23]: Return=    -1e+04, Steps=10000.0, Features = 290
+100000: E[0:00:47]-R[0:00:24]: Return=    -1e+04, Steps=10000, Features = 290
+100000: >>> E[0:00:47]-R[0:00:24]: Return=    -1e+04, Steps=10000.0, Features = 290
+105000: >>> E[0:00:55]-R[0:00:24]: Return=    -1e+04, Steps=10000.0, Features = 330
+110000: E[0:01:04]-R[0:00:23]: Return=    -1e+04, Steps=10000, Features = 330
+110000: >>> E[0:01:04]-R[0:00:23]: Return=    -1e+04, Steps=10000.0, Features = 330
+115000: >>> E[0:01:13]-R[0:00:22]: Return=    -1e+04, Steps=10000.0, Features = 346
+120000: E[0:01:21]-R[0:00:20]: Return=    -1e+04, Steps=10000, Features = 346
+120000: >>> E[0:01:21]-R[0:00:20]: Return=    -1e+04, Steps=10000.0, Features = 346
+125000: >>> E[0:01:30]-R[0:00:18]: Return=    -1e+04, Steps=10000.0, Features = 371
+130000: E[0:01:39]-R[0:00:15]: Return=    -1e+04, Steps=10000, Features = 371
+130000: >>> E[0:01:39]-R[0:00:15]: Return=    -1e+04, Steps=10000.0, Features = 371
+135000: >>> E[0:01:48]-R[0:00:12]: Return=    -1e+04, Steps=10000.0, Features = 381
+140000: E[0:01:57]-R[0:00:08]: Return=    -1e+04, Steps=10000, Features = 381
+140000: >>> E[0:01:57]-R[0:00:08]: Return=    -1e+04, Steps=10000.0, Features = 381
+145000: >>> E[0:02:06]-R[0:00:04]: Return=    -1e+04, Steps=10000.0, Features = 400
+150000: E[0:02:15]-R[0:00:00]: Return=    -1e+04, Steps=10000, Features = 400
+150000: >>> E[0:02:15]-R[0:00:00]: Return=    -1e+04, Steps=10000.0, Features = 400
+Total Experiment Duration 0:02:15
+     0: >>> E[0:00:00]-R[?]: Return=    -1e+04, Steps=10000.0, Features = 0
+ 10000: E[0:00:03]-R[0:08:01]: Return=    -1e+04, Steps=10000, Features = 51
+ 20000: E[0:00:07]-R[0:08:10]: Return=    -1e+04, Steps=10000, Features = 80
+ 30000: E[0:00:10]-R[0:08:16]: Return=    -1e+04, Steps=10000, Features = 108
+     0: >>> E[0:00:00]-R[?]: Return=    -1e+04, Steps=10000.0, Features = 0
+ 10000: E[0:00:03]-R[0:07:42]: Return=    -1e+04, Steps=10000, Features = 51
+ 20000: E[0:00:06]-R[0:07:51]: Return=    -1e+04, Steps=10000, Features = 80
+ 30000: E[0:00:10]-R[0:07:58]: Return=    -1e+04, Steps=10000, Features = 108
+ 40000: E[0:00:13]-R[0:08:05]: Return=    -1e+04, Steps=10000, Features = 135
+     0: >>> E[0:00:00]-R[?]: Return=    -1e+04, Steps=10000.0, Features = 0
+ 10000: E[0:00:03]-R[0:07:11]: Return=    -1e+04, Steps=10000, Features = 51
+ 20000: E[0:00:06]-R[0:07:21]: Return=    -1e+04, Steps=10000, Features = 80
+ 30000: E[0:00:09]-R[0:07:29]: Return=    -1e+04, Steps=10000, Features = 108
+ 40000: E[0:00:13]-R[0:07:36]: Return=    -1e+04, Steps=10000, Features = 135
+ 50000: E[0:00:16]-R[0:07:46]: Return=    -1e+04, Steps=10000, Features = 208
+ 50000: >>> E[0:00:16]-R[0:07:46]: Return=    -1e+04, Steps=10000.0, Features = 208
+ 60000: E[0:00:20]-R[0:07:54]: Return=    -1e+04, Steps=10000, Features = 233
+ 70000: E[0:00:24]-R[0:08:00]: Return=    -1e+04, Steps=10000, Features = 253
+ 80000: E[0:00:27]-R[0:08:07]: Return=    -1e+04, Steps=10000, Features = 277
+ 90000: E[0:00:44]-R[0:11:24]: Return=    -1e+04, Steps=10000, Features = 300
+100000: E[0:01:01]-R[0:14:11]: Return=    -1e+04, Steps=10000, Features = 362
+100000: >>> E[0:01:01]-R[0:14:11]: Return=    -1e+04, Steps=10000.0, Features = 362
+110000: E[0:01:19]-R[0:16:34]: Return=    -1e+04, Steps=10000, Features = 379
+120000: E[0:01:37]-R[0:18:34]: Return=    -1e+04, Steps=10000, Features = 403
+130000: E[0:01:56]-R[0:20:22]: Return=    -1e+04, Steps=10000, Features = 498
+140000: E[0:02:16]-R[0:22:00]: Return=    -1e+04, Steps=10000, Features = 521
+150000: E[0:02:36]-R[0:23:26]: Return=    -1e+04, Steps=10000, Features = 533
+150000: >>> E[0:02:36]-R[0:23:26]: Return=    -1e+04, Steps=10000.0, Features = 533
+160000: E[0:02:57]-R[0:24:41]: Return=    -1e+04, Steps=10000, Features = 551
+170000: E[0:03:18]-R[0:25:50]: Return=    -1e+04, Steps=10000, Features = 615
+180000: E[0:03:40]-R[0:26:52]: Return=    -1e+04, Steps=10000, Features = 634
+190000: E[0:04:02]-R[0:27:47]: Return=    -1e+04, Steps=10000, Features = 644
+200000: E[0:04:24]-R[0:28:36]: Return=    -1e+04, Steps=10000, Features = 652
+200000: >>> E[0:04:24]-R[0:28:36]: Return=    -1e+04, Steps=10000.0, Features = 652
+210000: E[0:04:46]-R[0:29:19]: Return=    -1e+04, Steps=10000, Features = 660
+220000: E[0:05:09]-R[0:29:58]: Return=    -1e+04, Steps=10000, Features = 691
+230000: E[0:05:32]-R[0:30:33]: Return=    -1e+04, Steps=10000, Features = 708
+240000: E[0:05:55]-R[0:31:04]: Return=    -1e+04, Steps=10000, Features = 715
+250000: E[0:06:19]-R[0:31:33]: Return=    -1e+04, Steps=10000, Features = 718
+250000: >>> E[0:06:19]-R[0:31:33]: Return=    -1e+04, Steps=10000.0, Features = 718
+260000: E[0:06:42]-R[0:31:58]: Return=    -1e+04, Steps=10000, Features = 738
+270000: E[0:07:06]-R[0:32:21]: Return=    -1e+04, Steps=10000, Features = 744
+280000: E[0:07:30]-R[0:32:43]: Return=    -1e+04, Steps=10000, Features = 791
+290000: E[0:07:55]-R[0:33:02]: Return=    -1e+04, Steps=10000, Features = 815
+300000: E[0:08:20]-R[0:33:20]: Return=    -1e+04, Steps=10000, Features = 827
+300000: >>> E[0:08:20]-R[0:33:20]: Return=    -1e+04, Steps=10000.0, Features = 827
+310000: E[0:08:45]-R[0:33:36]: Return=    -1e+04, Steps=10000, Features = 837
+320000: E[0:09:10]-R[0:33:50]: Return=    -1e+04, Steps=10000, Features = 856
+330000: E[0:09:36]-R[0:34:02]: Return=    -1e+04, Steps=10000, Features = 871
+340000: E[0:10:02]-R[0:34:13]: Return=    -1e+04, Steps=10000, Features = 872
+350000: E[0:10:28]-R[0:34:22]: Return=    -1e+04, Steps=10000, Features = 885
+350000: >>> E[0:10:28]-R[0:34:22]: Return=    -1e+04, Steps=10000.0, Features = 885
+360000: E[0:10:53]-R[0:34:29]: Return=    -1e+04, Steps=10000, Features = 889
+370000: E[0:11:19]-R[0:34:34]: Return=    -1e+04, Steps=10000, Features = 894
+380000: E[0:11:45]-R[0:34:39]: Return=    -1e+04, Steps=10000, Features = 905
+390000: E[0:12:12]-R[0:34:44]: Return=    -1e+04, Steps=10000, Features = 920
+400000: E[0:12:39]-R[0:34:47]: Return=    -1e+04, Steps=10000, Features = 926
+400000: >>> E[0:12:39]-R[0:34:47]: Return=    -1e+04, Steps=10000.0, Features = 926
+410000: E[0:13:06]-R[0:34:49]: Return=    -1e+04, Steps=10000, Features = 930
+420000: E[0:13:33]-R[0:34:50]: Return=    -1e+04, Steps=10000, Features = 941
+430000: E[0:14:00]-R[0:34:51]: Return=    -1e+04, Steps=10000, Features = 951
+440000: E[0:14:27]-R[0:34:50]: Return=    -1e+04, Steps=10000, Features = 969
+450000: E[0:14:55]-R[0:34:49]: Return=    -1e+04, Steps=10000, Features = 980
+450000: >>> E[0:14:55]-R[0:34:49]: Return=    -1e+04, Steps=10000.0, Features = 980
+460000: E[0:15:24]-R[0:34:48]: Return=    -1e+04, Steps=10000, Features = 1039
+470000: E[0:15:53]-R[0:34:48]: Return=    -1e+04, Steps=10000, Features = 1063
+480000: E[0:16:22]-R[0:34:46]: Return=    -1e+04, Steps=10000, Features = 1066
+490000: E[0:16:51]-R[0:34:44]: Return=    -1e+04, Steps=10000, Features = 1102
+500000: E[0:17:21]-R[0:34:41]: Return=    -1e+04, Steps=10000, Features = 1122
+500000: >>> E[0:17:21]-R[0:34:41]: Return=    -1e+04, Steps=10000.0, Features = 1122
+510000: E[0:17:51]-R[0:34:38]: Return=    -1e+04, Steps=10000, Features = 1131
+520000: E[0:18:21]-R[0:34:34]: Return=    -1e+04, Steps=10000, Features = 1137
+530000: E[0:18:51]-R[0:34:29]: Return=    -1e+04, Steps=10000, Features = 1139
+540000: E[0:19:21]-R[0:34:24]: Return=    -1e+04, Steps=10000, Features = 1151
+550000: E[0:19:52]-R[0:34:18]: Return=    -1e+04, Steps=10000, Features = 1157
+550000: >>> E[0:19:52]-R[0:34:18]: Return=    -1e+04, Steps=10000.0, Features = 1157
+560000: E[0:20:22]-R[0:34:11]: Return=    -1e+04, Steps=10000, Features = 1157
+570000: E[0:20:53]-R[0:34:04]: Return=    -1e+04, Steps=10000, Features = 1166
+580000: E[0:21:23]-R[0:33:56]: Return=    -1e+04, Steps=10000, Features = 1172
+590000: E[0:21:54]-R[0:33:47]: Return=    -1e+04, Steps=10000, Features = 1190
+600000: E[0:22:26]-R[0:33:38]: Return=    -1e+04, Steps=10000, Features = 1195
+600000: >>> E[0:22:26]-R[0:33:38]: Return=    -1e+04, Steps=10000.0, Features = 1195
+610000: E[0:22:57]-R[0:33:29]: Return=    -1e+04, Steps=10000, Features = 1203
+620000: E[0:23:28]-R[0:33:19]: Return=    -1e+04, Steps=10000, Features = 1214
+630000: E[0:24:00]-R[0:33:08]: Return=    -1e+04, Steps=10000, Features = 1214
+640000: E[0:24:32]-R[0:32:58]: Return=    -1e+04, Steps=10000, Features = 1240
+650000: E[0:25:04]-R[0:32:46]: Return=    -1e+04, Steps=10000, Features = 1242
+650000: >>> E[0:25:04]-R[0:32:46]: Return=    -1e+04, Steps=10000.0, Features = 1242
+660000: E[0:25:36]-R[0:32:35]: Return=    -1e+04, Steps=10000, Features = 1257
+670000: E[0:26:08]-R[0:32:23]: Return=    -1e+04, Steps=10000, Features = 1264
+680000: E[0:26:41]-R[0:32:10]: Return=    -1e+04, Steps=10000, Features = 1276
+690000: E[0:27:13]-R[0:31:58]: Return=    -1e+04, Steps=10000, Features = 1285
+700000: E[0:27:46]-R[0:31:44]: Return=    -1e+04, Steps=10000, Features = 1292
+700000: >>> E[0:27:46]-R[0:31:44]: Return=    -1e+04, Steps=10000.0, Features = 1292
+710000: E[0:28:19]-R[0:31:31]: Return=    -1e+04, Steps=10000, Features = 1299
+720000: E[0:28:52]-R[0:31:17]: Return=    -1e+04, Steps=10000, Features = 1306
+730000: E[0:29:26]-R[0:31:02]: Return=    -1e+04, Steps=10000, Features = 1317
+740000: E[0:29:59]-R[0:30:47]: Return=    -1e+04, Steps=10000, Features = 1324
+750000: E[0:30:32]-R[0:30:32]: Return=    -1e+04, Steps=10000, Features = 1331
+750000: >>> E[0:30:32]-R[0:30:32]: Return=    -1e+04, Steps=10000.0, Features = 1331
+760000: E[0:31:05]-R[0:30:16]: Return=    -1e+04, Steps=10000, Features = 1333
+770000: E[0:31:39]-R[0:30:00]: Return=    -1e+04, Steps=10000, Features = 1336
+780000: E[0:32:13]-R[0:29:44]: Return=    -1e+04, Steps=10000, Features = 1345
+790000: E[0:32:47]-R[0:29:27]: Return=    -1e+04, Steps=10000, Features = 1370
+800000: E[0:33:21]-R[0:29:11]: Return=    -1e+04, Steps=10000, Features = 1373
+800000: >>> E[0:33:21]-R[0:29:11]: Return=    -1e+04, Steps=10000.0, Features = 1373
+810000: E[0:33:55]-R[0:28:54]: Return=    -1e+04, Steps=10000, Features = 1377
+820000: E[0:34:29]-R[0:28:36]: Return=    -1e+04, Steps=10000, Features = 1377
+830000: E[0:35:04]-R[0:28:18]: Return=    -1e+04, Steps=10000, Features = 1398
+840000: E[0:35:38]-R[0:28:00]: Return=    -1e+04, Steps=10000, Features = 1400
+850000: E[0:36:13]-R[0:27:42]: Return=    -1e+04, Steps=10000, Features = 1425
+850000: >>> E[0:36:13]-R[0:27:42]: Return=    -1e+04, Steps=10000.0, Features = 1425
+860000: E[0:36:48]-R[0:27:24]: Return=    -1e+04, Steps=10000, Features = 1429
+870000: E[0:37:24]-R[0:27:05]: Return=    -1e+04, Steps=10000, Features = 1436
+880000: E[0:37:59]-R[0:26:46]: Return=    -1e+04, Steps=10000, Features = 1453
+890000: E[0:38:35]-R[0:26:26]: Return=    -1e+04, Steps=10000, Features = 1454
+900000: E[0:39:10]-R[0:26:07]: Return=    -1e+04, Steps=10000, Features = 1469
+900000: >>> E[0:39:10]-R[0:26:07]: Return=    -1e+04, Steps=10000.0, Features = 1469
+910000: E[0:39:46]-R[0:25:47]: Return=    -1e+04, Steps=10000, Features = 1475
+920000: E[0:40:22]-R[0:25:27]: Return=    -1e+04, Steps=10000, Features = 1476
+930000: E[0:40:58]-R[0:25:06]: Return=    -1e+04, Steps=10000, Features = 1501
+940000: E[0:41:34]-R[0:24:46]: Return=    -1e+04, Steps=10000, Features = 1507
+950000: E[0:42:11]-R[0:24:25]: Return=    -1e+04, Steps=10000, Features = 1517
+950000: >>> E[0:42:11]-R[0:24:25]: Return=    -1e+04, Steps=10000.0, Features = 1517
+960000: E[0:42:47]-R[0:24:04]: Return=    -1e+04, Steps=10000, Features = 1563
