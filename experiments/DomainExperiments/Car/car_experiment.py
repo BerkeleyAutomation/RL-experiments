@@ -9,6 +9,7 @@ from rlpy.Tools import deltaT, clock, hhmmss, getTimeStr
 import os
 import yaml
 import shutil
+import inspect
 
 def load_yaml(file_path):
     with open(file_path, 'r') as f:
@@ -39,6 +40,7 @@ def run_experiment_params(param_path='./params.yaml'):
         os.makedirs(opt["path"])
 
     shutil.copy(param_path, opt["path"] + "params.yml")
+    shutil.copy(inspect.getfile(eval(params.domain)), opt["path"] + "domain.py")
 
     return eval(params.experiment)(**opt)
 
@@ -48,7 +50,7 @@ if __name__ == '__main__':
     experiment = run_experiment_params(sys.argv[1])
     experiment.run(visualize_steps=False,  # should each learning step be shown?
                    visualize_learning=False,
-                   visualize_performance=True)  # show policy / value function?
+                   visualize_performance=False)  # show policy / value function?
                    # saveTrajectories=False)  # show performance runs?
 
     experiment.domain.showLearning(experiment.agent.representation)
