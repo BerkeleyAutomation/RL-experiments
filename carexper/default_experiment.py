@@ -22,14 +22,12 @@ def make_experiment(
     opt["exp_id"] = exp_id
     opt["path"] = path
     opt["max_steps"] = 1500000
-    opt["num_policy_checks"] = 30
-    opt["checks_per_policy"] = 1
+    opt["num_policy_checks"] = 3
+    opt["checks_per_policy"] = 10
 
     domain = RCCar()
     opt["domain"] = domain
-    representation = IncrementalTabular(
-        domain,
-        discretization=discretization)
+    representation = Fourier(domain, order=5)
     policy = eGreedy(representation, epsilon=0.1)
 
     opt["agent"] = Q_Learning(
