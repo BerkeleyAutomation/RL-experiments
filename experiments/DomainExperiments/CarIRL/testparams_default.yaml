@@ -2,16 +2,16 @@
 # Current setup has _no_ penalization for hitting walls
 exp_id: 4
 
-results_path: './Results/Experiments/TrialCar/'
+results_path: './Results/Experiments/CarIRL/'
 
-experiment: rlpy.Experiments.ExperimentSegment
+experiment: rlpy.Experiments.Experiment
 
-domain: rlpy.CustomDomains.RCSegment
+domain: rlpy.CustomDomains.RCIRL
 domain_params:
-    goal: [0.5, 0.3, 0, 1.0472] #pi/3
+    goal: [[0.5, 0.3, 0, 1.0472]] #pi/3
     noise: 0.1
     episodeCap: 50
-    goal_reward: 5
+    goal_reward: 3
     goal_radius: 0.1
 
 performance_domain: rlpy.CustomDomains.RCSegment
@@ -28,7 +28,7 @@ performance_params:
 representation: rlpy.Representations.IncrementalTabular
 representation_params:
     # domain is implicit as defined above
-    discretization: 20
+    discretization: 40
 
 policy: rlpy.Policies.eGreedy
 policy_params:
@@ -44,5 +44,5 @@ agent_params:
     learn_rate_decay_mode: 'const'
 
 checks_per_policy: 20
-max_eps: 800
-num_policy_checks: 40
+max_eps: 14000
+num_policy_checks: 100
