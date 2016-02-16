@@ -1,4 +1,4 @@
-from rlpy.CustomDomains import RCIRL
+from rlpy.CustomDomains import RCIRL, Encoding
 from rlpy.Agents import Q_Learning
 from rlpy.Representations import *
 from rlpy.Policies import eGreedy
@@ -24,8 +24,14 @@ def make_experiment(
     opt["max_steps"] = 150000
     opt["num_policy_checks"] = 3
     opt["checks_per_policy"] = 10
+    def goalfn(state, goal):
+        return (abs(state[3] - goal[3]) < RCIRL.HEADBOUND 
+                and np.linalg.norm(state[:2] - goal[:2]) < RCIRL.GOAL_RADIUS) # cannot vary
 
-    domain = RCIRL([[.3, .3], [.5, .5]])
+    encode = Encoding([[0.2, 0.2, 0, 0]], goalfn)
+
+    domain = RCIRL([[.3, .3, 0, 0], [.5, .5, 0, 1]], #make sure this works only with 2 out of 4?
+                 encodingFunction=encode.strict_encoding)
     opt["domain"] = domain
     representation = Fourier(domain, order=5) # may run into problem with encoding
     policy = eGreedy(representation, epsilon=0.1)
