@@ -21,17 +21,17 @@ def make_experiment(
     opt = {}
     opt["exp_id"] = exp_id
     opt["path"] = path
-    opt["max_steps"] = 150000
+    opt["max_steps"] = 15000
     opt["num_policy_checks"] = 3
-    opt["checks_per_policy"] = 10
+    opt["checks_per_policy"] = 1
     def goalfn(state, goal):
         return (abs(state[3] - goal[3]) < RCIRL.HEADBOUND 
                 and np.linalg.norm(state[:2] - goal[:2]) < RCIRL.GOAL_RADIUS) # cannot vary
 
-    encode = Encoding([[0.2, 0.2, 0, 0]], goalfn)
+    encode = Encoding([[0.1, 0.1, 0, 0.1]], goalfn)
 
-    domain = RCIRL([[.3, .3, 0, 0], [.5, .5, 0, 1]], #make sure this works only with 2 out of 4?
-                 encodingFunction=encode.strict_encoding)
+    domain = RCIRL([[0.9, .3, 0, 0.7], [1.2, .5, 0, 1]], episodeCap=1000,
+                    encodingFunction=encode.strict_encoding)
     opt["domain"] = domain
     representation = Fourier(domain, order=5) # may run into problem with encoding
     policy = eGreedy(representation, epsilon=0.1)
@@ -46,6 +46,6 @@ def make_experiment(
 if __name__ == '__main__':
     # run_profiled(make_experiment)
     experiment = make_experiment()
-    experiment.run()
+    experiment.run(visualize_steps=True)
     experiment.plot()
     # experiment.save()
