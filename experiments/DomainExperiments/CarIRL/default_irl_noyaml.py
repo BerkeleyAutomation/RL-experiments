@@ -1,4 +1,4 @@
-from rlpy.CustomDomains import RCIRL, Encoding
+from rlpy.CustomDomains import RCIRL, Encoding, allMarkovReward
 from rlpy.Agents import Q_Learning
 from rlpy.Representations import *
 from rlpy.Policies import eGreedy
@@ -11,6 +11,23 @@ param_space = {'discretization': hp.quniform("discretization", 5, 50, 1),
                'boyan_N0': hp.loguniform("boyan_N0", np.log(1e1), np.log(1e5)),
                'initial_learn_rate': hp.loguniform("initial_learn_rate", np.log(5e-2), np.log(1))}
 
+rewards = [
+    [0.0, 0.0, 0.03, 0.0],
+    [0.01, 0.0, 0.06, 0.02],
+    [0.03, 0.0, 0.09, 0.05],
+    [0.05, 0.0, 0.12, 0.1],
+    [0.09, 0.01, 0.15, 0.17],
+    [0.13, 0.01, 0.18, 0.26],
+    [0.19, 0.03, 0.21, 0.36],
+    [0.25, 0.05, 0.24, 0.48],
+    [0.31, 0.08, 0.21, 0.62],
+    [0.36, 0.12, 0.18, 0.74],
+    [0.4, 0.16, 0.15, 0.85],
+    [0.43, 0.19, 0.12, 0.94],
+    [0.45, 0.22, 0.09, 1.0],
+    [0.47, 0.24, 0.06, 1.0],
+    [0.47, 0.26, 0.03, 1.0]]
+
 
 def make_experiment(
         exp_id=1, path="./Results/Temp/{domain}/{agent}/{representation}/",
@@ -21,19 +38,24 @@ def make_experiment(
     opt = {}
     opt["exp_id"] = exp_id
     opt["path"] = path
-    opt["max_steps"] = 15000
-    opt["num_policy_checks"] = 3
-    opt["checks_per_policy"] = 1
+    opt["max_steps"] = 30000
+    opt["num_policy_checks"] = 5
+    opt["checks_per_policy"] = 30
     def goalfn(state, goal):
-        return (abs(state[3] - goal[3]) < RCIRL.HEADBOUND 
+        return (abs(state[3] - goal[3]) < RCIRL.HEADBOUND
+                and (abs(state[2] - goal[2]) < RCIRL.SPEEDBOUND)
                 and np.linalg.norm(state[:2] - goal[:2]) < RCIRL.GOAL_RADIUS) # cannot vary
 
-    encode = Encoding([[0.1, 0.1, 0, 0.1]], goalfn)
+    def encode_trial():
+        encode = Encoding(rewards[1::4], goalfn)
+        return encode.strict_encoding
 
-    domain = RCIRL([[0.9, .3, 0, 0.7], [1.2, .5, 0, 1]], episodeCap=1000,
-                    encodingFunction=encode.strict_encoding)
+    domain = RCIRL(rewards[::4], episodeCap=1000,
+                    encodingFunction=encode_trial(),
+                    step_reward=-0.1)
+                    # rewardFunction=allMarkovReward)
     opt["domain"] = domain
-    representation = Fourier(domain, order=5) # may run into problem with encoding
+    representation = Fourier(domain, order=3) # may run into problem with encoding
     policy = eGreedy(representation, epsilon=0.1)
 
     opt["agent"] = Q_Learning(
@@ -46,6 +68,6 @@ def make_experiment(
 if __name__ == '__main__':
     # run_profiled(make_experiment)
     experiment = make_experiment()
-    experiment.run(visualize_steps=True)
+    experiment.run() #visualize_steps=True)
     experiment.plot()
-    # experiment.save()
+    experiment.save()
