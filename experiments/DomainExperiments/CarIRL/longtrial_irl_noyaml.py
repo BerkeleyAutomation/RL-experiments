@@ -71,6 +71,6 @@ def make_experiment(
 if __name__ == '__main__':
     # run_profiled(make_experiment)
     experiment = make_experiment()
-    experiment.run(visualize_steps=True)
+    experiment.run() #visualize_steps=True)
     experiment.plot()
     experiment.save()

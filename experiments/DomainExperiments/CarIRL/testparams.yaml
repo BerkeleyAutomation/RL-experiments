@@ -53,6 +53,6 @@ agent_params:
     learn_rate_decay_mode: 'boyan'
     boyan_N0: 238
 
-checks_per_policy: 20
-max_steps: 14000
-num_policy_checks: 100
+checks_per_policy: 5
+max_steps: 15000
+num_policy_checks: 5

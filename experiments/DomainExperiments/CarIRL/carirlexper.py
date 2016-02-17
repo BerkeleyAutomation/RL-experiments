@@ -52,8 +52,6 @@ def run_experiment_params(param_path='./params.yaml'):
                 discount_factor=domain.discount_factor, 
                 **params.agent_params)
 
-    import ipdb; ipdb.set_trace()
-
     opt = {}
     opt["exp_id"] = params.exp_id
     opt["path"] = params.results_path + getTimeStr() + "/"
@@ -71,7 +69,7 @@ def run_experiment_params(param_path='./params.yaml'):
 
     shutil.copy(param_path, opt["path"] + "params.yml")
     shutil.copy(inspect.getfile(eval(params.domain)), opt["path"] + "domain.py")
-    shutil.copy(inspect.getfile(eval(params.domain)), opt["path"] + "exper.py")
+    shutil.copy(inspect.getfile(inspect.currentframe()), opt["path"] + "exper.py")
 
 
     return eval(params.experiment)(**opt)
@@ -84,8 +82,8 @@ if __name__ == '__main__':
                    visualize_learning=False,
                    visualize_performance=False)  # show policy / value function?
                    # saveTrajectories=False)  # show performance runs?
-
-    experiment.domain.showLearning(experiment.agent.representation)
+    
+    # experiment.domain.showLearning(experiment.agent.representation)
 
     # experiment.plotTrials(save=True)
     # experiment.plot(save=True, x = "learning_episode") #, y="reward")
