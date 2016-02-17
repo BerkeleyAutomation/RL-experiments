@@ -49,10 +49,10 @@ def make_experiment(
                 np.linalg.norm(state[:2] - goal[:2]) < RCIRL.GOAL_RADIUS) # cannot vary
 
     def encode_trial():
-        encode = Encoding(rewards[1::4], goalfn)
+        encode = Encoding(rewards[1::3], goalfn)
         return encode.strict_encoding
 
-    domain = RCIRL(rewards[::2], episodeCap=1000,
+    domain = RCIRL(rewards[::4], episodeCap=1000,
                     encodingFunction=encode_trial(),
                     goalfn=goalfn,
                     step_reward=-0.5)

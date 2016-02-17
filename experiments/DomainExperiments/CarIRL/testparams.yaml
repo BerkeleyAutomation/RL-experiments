@@ -1,48 +1,58 @@
 # YAML file for experiments
 # Current setup has _no_ penalization for hitting walls
-exp_id: 4
+exp_id: 1
 
-results_path: './Results/Experiments/CarIRL/'
+results_path: './Results/Experiments/CarIRL/Fourier'
 
-experiment: rlpy.Experiments.ExperimentSegment
+experiment: rlpy.Experiments.Experiment
 
-domain: rlpy.CustomDomains.RCSegment
+domain: rlpy.CustomDomains.RCIRL
+
 domain_params:
-    goal: [0.5, 0.3, 0, 1.0472] #pi/3
+    goalArray: 
+        - [0.0, 0.0, -0.03, 0.0]
+        - [-0.01, 0.0, -0.06, 0.02]
+        - [-0.03, -0.0, -0.09, 0.05]
+        - [-0.05, -0.0, -0.12, 0.1]
+        - [-0.09, -0.01, -0.15, 0.17]
+        - [-0.13, -0.01, -0.18, 0.26]
+        - [-0.19, -0.03, -0.21, 0.16]
+        - [-0.25, -0.04, -0.24, 0.03]
+        - [-0.32, -0.04, -0.27, -0.1]
+        - [-0.4, -0.03, -0.3, -0.26]
+        - [-0.49, -0.01, -0.3, -0.43]
+        - [-0.57, 0.03, -0.3, -0.61]
+        - [-0.64, 0.08, -0.3, -0.78]
+        - [-0.71, 0.14, -0.27, -0.95]
+        - [-0.75, 0.21, -0.24, -1.11]
+        - [-0.79, 0.27, -0.21, -1.25]
+        - [-0.81, 0.33, -0.18, -1.37]
+        - [-0.82, 0.39, -0.15, -1.47]
+        - [-0.82, 0.43, -0.12, -1.56]
     noise: 0.1
-    episodeCap: 50
-    goal_reward: 3
-    goal_radius: 0.1
+    episodeCap: 1000
+    step_reward: -0.5
 
-performance_domain: rlpy.CustomDomains.RCSegment
-performance_params:
-# Goal[0] and Goal[1] represent 
-# Goal[2] is ignored
-# Goal[3] 
-    goal: [0.5, 0.3, 0, 1.047] #pi/3
-    noise: 0.01
-    episodeCap: 50
-    goal_reward: 5
-    goal_radius: 0.1
-
-representation: rlpy.Representations.IncrementalTabular
+representation: rlpy.Representations.Fourier
 representation_params:
     # domain is implicit as defined above
-    discretization: 40
+    order: 3
 
 policy: rlpy.Policies.eGreedy
 policy_params:
     # representation: also implicit
-    epsilon: 0.3
+    epsilon: 0.2
 
 agent: rlpy.Agents.Q_Learning
 agent_params:
     # - representation
     # - policy
     # - discount factor = domain.discount_factor = 0.9
-    initial_learn_rate: 0.3
-    learn_rate_decay_mode: 'const'
+    initial_learn_rate: 0.1
+    lambda_: 0.9
+    learn_rate_decay_mode: 'boyan'
+    boyan_N0: 238
 
 checks_per_policy: 20
-max_eps: 14000
+max_steps: 14000
 num_policy_checks: 100
