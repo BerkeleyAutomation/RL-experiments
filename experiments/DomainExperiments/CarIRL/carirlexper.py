@@ -31,12 +31,12 @@ def run_experiment_params(param_path='./params.yaml'):
     # Load domain
     def encode_trial():
         rewards = list(params.domain_params['goalArray'])
-        encode = Encoding(rewards[1::3], goalfn)
+        encode = Encoding(rewards[1::4], goalfn)
         return encode.strict_encoding
 
     params.domain_params['goalfn'] = goalfn
     params.domain_params['encodingFunction'] = encode_trial()
-    params.domain_params['goalArray'] = params.domain_params['goalArray'][::4]
+    params.domain_params['goalArray'] = params.domain_params['goalArray'][10:11]
     domain = eval(params.domain)(**params.domain_params)
 
     #Load Representation
@@ -82,10 +82,9 @@ if __name__ == '__main__':
                    visualize_learning=False,
                    visualize_performance=False)  # show policy / value function?
                    # saveTrajectories=False)  # show performance runs?
-    
-    # experiment.domain.showLearning(experiment.agent.representation)
-
-    # experiment.plotTrials(save=True)
-    # experiment.plot(save=True, x = "learning_episode") #, y="reward")
+    import pickle as p
+    with open("trial.p", "w") as f:
+        p.dump(experiment.domain.terminal_state, f)
+        print "dumped output into " + "trial.p"
     experiment.save()
 
